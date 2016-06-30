@@ -1,0 +1,70 @@
+\documentclass{scrartcl}
+
+
+\usepackage[english]{babel} 
+
+\usepackage{amsfonts}
+\usepackage{amsmath,amsthm,amssymb,upref}
+\usepackage{tikz}
+\usepackage[left=1cm, right = 1cm, top = 1cm, bottom = 1cm]{geometry}
+
+
+\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newcommand{\Frechet}{Fr\'echet }
+\newcommand{\T}{\mathcal T}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+
+\newcommand{\del}{\partial}
+\newcommand{\dist}{\operatorname{dist}}
+\usetikzlibrary{calc}
+\begin{document}
+
+
+% IMPORTANT: a^2+c^2 = b^2 (sorry for that)
+% AND: b > c > a
+
+% Set a, b, c according to the rules above,
+% set "padding factor" y to something arbitrary, e.g. 0.3
+% don't touch x
+\begin{tikzpicture}[scale=2]
+\pgfmathsetmacro{\a}{4}
+\pgfmathsetmacro{\b}{5}
+\pgfmathsetmacro{\c}{3}
+\pgfmathsetmacro{\x}{\a + \b}
+\pgfmathsetmacro{\y}{0.3}
+\draw (0,0) -- node [below]{a}(\a,0) -- node[right]{c} (\a, \c) -- node[above]{b} (0,0);
+%\draw (\a,\b) -- (\a, \x + \y - \b);
+\draw (\a, \x + \y - \b) arc (90:180:\x + \y - \b);
+\draw (\a, \x + \y - \b) arc(90:atan(\c/\a):\x + \y - \b - \c);
+\draw (\x + \y - \c, 0) arc (0:(atan(\c/\a):\x + \y - \c);
+\draw (\x + \y - \c, 0) arc (0:-90:\x+\y-\a-\c);
+\draw (\a, -\x-\y+\a+\c) arc (-90:-90-atan(\a/\c):\x+\y-\a);
+\draw (-\x-\y+\a+\b, 0) arc (0:acos(\c/\b):-\x-\y+\a+\b);
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[scale=.5]
+\pgfmathsetmacro{\a}{12}
+\pgfmathsetmacro{\b}{13}
+\pgfmathsetmacro{\c}{5}
+\pgfmathsetmacro{\x}{\a + \b}
+\pgfmathsetmacro{\y}{0.3}
+\draw (0,0) -- node [below]{a}(\a,0) -- node[right]{c} (\a, \c) -- node[above]{b} (0,0);
+%\draw (\a,\b) -- (\a, \x + \y - \b);
+\draw (\a, \x + \y - \b) arc (90:180:\x + \y - \b);
+\draw (\a, \x + \y - \b) arc(90:atan(\c/\a):\x + \y - \b - \c);
+\draw (\x + \y - \c, 0) arc (0:(atan(\c/\a):\x + \y - \c);
+\draw (\x + \y - \c, 0) arc (0:-90:\x+\y-\a-\c);
+\draw (\a, -\x-\y+\a+\c) arc (-90:-90-atan(\a/\c):\x+\y-\a);
+\draw (-\x-\y+\a+\b, 0) arc (0:acos(\c/\b):-\x-\y+\a+\b);
+\end{tikzpicture}
+
+\end{document}
